@@ -9,3 +9,4 @@ multidict==4.7.5
 typing-extensions==3.7.4.2
 websockets==8.1
 yarl==1.4.2
+python-dotenv==0.13.0
