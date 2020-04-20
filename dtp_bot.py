@@ -38,14 +38,10 @@ async def role_add(ctx, *args):
     )
 
     # Roles
-    # (I wrapped them in lists so that they can be accessed
-    # more than once)
-    requested_role_names = list(map(lambda s: s.lower(), args))
+    # (I wrapped the filter object in a list
+    # so that it can be accessed more than once)
     roles = list(
-        filter(
-            lambda role: role.name in requested_role_names,
-            allowed_roles
-        )
+        filter(lambda role: role.name in args, allowed_roles)
     )
 
     if roles:
@@ -54,7 +50,7 @@ async def role_add(ctx, *args):
             f'Roles {", ".join(map(str, roles))} have been given to {user.name}.'
         )
     else:
-        await ctx.send(f'No roles have been given to {user.name}.')
+        await ctx.send(f'No roles were given to {user.name}.')
 
 # Messages
 print('Starting the bot...\nConstants:')
