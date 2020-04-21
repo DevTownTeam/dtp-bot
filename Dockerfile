@@ -8,7 +8,7 @@ RUN python3 -m venv venv
 RUN . /venv/bin/activate
 RUN pip3 install -r requirements.txt
 
-RUN adduser -D user
+RUN useradd user
 USER user
 
 CMD ["python3", "dtp_bot.py"]
