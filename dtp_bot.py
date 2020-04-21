@@ -72,7 +72,7 @@ async def role_remove(ctx, *args):
 
     if roles_to_remove:
         await user.remove_roles(*roles_to_remove)
-        await ctx.send(f'Successfully removed roles {", ".join(args)}.')
+        await ctx.send(f'Successfully removed roles {", ".join(roles_to_remove)}.')
     else:
         await ctx.send(f'No roles were removed from {user.name}.')
 
