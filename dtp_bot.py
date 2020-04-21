@@ -64,7 +64,8 @@ async def role_remove(ctx, *args):
     user_roles = user.roles
     roles_to_remove = list(
         filter(
-            lambda role: role.name in args and role.name != '@everyone',
+            lambda role: role.name in args
+                         and str(role.color) == CONSTANTS['ALLOWED_ROLE_COLOR'],
             user_roles
         )
     )
@@ -84,6 +85,7 @@ async def role_clear(ctx):
     """
     user_role_names = tuple(map(str, ctx.message.author.roles))
     await role_remove(ctx, *user_role_names)
+
 
 # Messages
 print('Starting the bot...\nConstants:')
