@@ -60,7 +60,6 @@ async def role_remove(ctx, *args):
     :param ctx: context
     :param args: role names
     """
-    print(args)
     user = ctx.message.author
     user_roles = user.roles
     roles_to_remove = list(
