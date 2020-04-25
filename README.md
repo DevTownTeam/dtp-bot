@@ -14,7 +14,7 @@ This is the easiest way to get DTP-Bot working.
 docker pull karmekk/dtp-bot:1.1.0
 ```
 
-2. Save the [template .env file](https://github.com/karmek-k/dtp-bot/blob/master/.env.template), rename it and modify to your needs.
+2. Save the [template .env file](https://raw.githubusercontent.com/karmek-k/dtp-bot/master/.env.template), rename it and modify to your needs.
 
 3. Run the image.
 
