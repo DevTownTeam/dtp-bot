@@ -3,6 +3,7 @@
 import os
 import logging
 
+import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -85,6 +86,28 @@ async def role_clear(ctx):
     """
     user_role_names = tuple(map(str, ctx.message.author.roles))
     await role_remove(ctx, *user_role_names)
+
+
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def warn(ctx, user: discord.Member=None, *args):
+    """
+    Sends a warning message to a user via DM.
+    :param ctx: context
+    :param user: user name or tag
+    :param args: warn reason
+    """
+    reason = ' '.join(args)
+    
+    if user:
+        await user.send(
+            f'You have been warned by {str(ctx.message.author)}!'
+        )
+        if reason:
+            await user.send(f'Reason: {reason}')
+        await ctx.send(f'User {user} was warned.')
+    else:
+        await ctx.send('Invalid user specified.')
 
 
 # Messages
